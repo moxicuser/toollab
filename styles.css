@@ -205,6 +205,10 @@ body.nav-open {
 }
 
 @media (min-width: 761px) {
+  .nav-links {
+    transition: none;
+  }
+
   body.nav-open .topbar {
     left: 340px;
     width: calc(100% - 340px);
