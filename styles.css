@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --bg: #f4f7fb;
   --panel: #ffffff;
   --panel-alt: #f0f5ff;
@@ -9,6 +10,42 @@
   --border: #dfe6f1;
   --success: #198754;
   --shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  --hero-start: #edf4ff;
+  --soft-surface: #f8fafc;
+  --footer-bg: #ffffff;
+  --button-secondary-bg: #e2e8f0;
+  --button-primary-text: #ffffff;
+  --result-background: linear-gradient(135deg, #eff6ff, #eefbf5);
+  --result-border: #cae0ff;
+  --result-row-border: rgba(148, 163, 184, 0.35);
+  --code-background: #0f172a;
+  --code-text: #f8fafc;
+  --drawer-shadow: 18px 0 48px rgba(15, 23, 42, 0.14);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d131d;
+  --panel: #151e2a;
+  --panel-alt: #202c3b;
+  --primary: #9fc3ff;
+  --primary-dark: #c4d9ff;
+  --text: #e8eef6;
+  --muted: #afbdce;
+  --border: #354457;
+  --success: #59c995;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+  --hero-start: #172337;
+  --soft-surface: #1c2735;
+  --footer-bg: #111923;
+  --button-secondary-bg: #2a3849;
+  --button-primary-text: #111a27;
+  --result-background: linear-gradient(135deg, #1d3047, #18332e);
+  --result-border: #3c5d72;
+  --result-row-border: rgba(148, 163, 184, 0.22);
+  --code-background: #090e15;
+  --code-text: #e2e8f0;
+  --drawer-shadow: 18px 0 48px rgba(0, 0, 0, 0.48);
 }
 
 * {
@@ -88,7 +125,7 @@ select {
   touch-action: pan-y;
   background: var(--panel);
   border-right: 1px solid var(--border);
-  box-shadow: 18px 0 48px rgba(15, 23, 42, 0.14);
+  box-shadow: var(--drawer-shadow);
   transform: translateX(-110%);
   pointer-events: none;
   transition: transform 220ms ease;
@@ -121,6 +158,43 @@ select {
   margin: 0 0 12px;
   padding: 0 6px 12px;
   border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.theme-control {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0 0 8px;
+  padding: 0 6px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.theme-control-label {
+  grid-column: 1 / -1;
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.theme-option {
+  min-width: 0;
+  padding: 8px 4px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.theme-option[aria-pressed="true"] {
+  border-color: var(--primary);
+  background: var(--panel-alt);
   color: var(--text);
   font-weight: 700;
 }
@@ -272,7 +346,7 @@ body.nav-open {
 
 .hero {
   padding: 64px 0 28px;
-  background: linear-gradient(180deg, #edf4ff 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, var(--hero-start) 0%, var(--bg) 100%);
 }
 
 .hero-inner {
@@ -408,7 +482,7 @@ body.nav-open {
   border: 0;
   border-radius: 6px;
   background: var(--primary);
-  color: white;
+  color: var(--button-primary-text);
   font: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -462,7 +536,7 @@ body.nav-open {
   padding: 12px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: #f8fafc;
+  background: var(--soft-surface);
 }
 
 .image-preview-panel h3 {
@@ -504,7 +578,7 @@ body.nav-open {
   padding: 12px;
   overflow: auto;
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--panel);
   color: var(--text);
   font: 0.85rem/1.5 Consolas, monospace;
   white-space: pre-wrap;
@@ -566,11 +640,11 @@ body.nav-open {
 
 .primary-btn {
   background: var(--primary);
-  color: white;
+  color: var(--button-primary-text);
 }
 
 .secondary-btn {
-  background: #e2e8f0;
+  background: var(--button-secondary-bg);
   color: var(--text);
 }
 
@@ -580,8 +654,8 @@ body.nav-open {
 }
 
 .result-box {
-  background: linear-gradient(135deg, #eff6ff, #eefbf5);
-  border: 1px solid #cae0ff;
+  background: var(--result-background);
+  border: 1px solid var(--result-border);
   border-radius: 16px;
   padding: 18px 16px;
 }
@@ -591,7 +665,7 @@ body.nav-open {
   justify-content: space-between;
   gap: 16px;
   padding: 12px 0;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+  border-bottom: 1px solid var(--result-row-border);
 }
 
 .result-row:last-child {
@@ -711,8 +785,8 @@ body.nav-open {
 }
 
 .formula-box {
-  background: #0f172a;
-  color: #f8fafc;
+  background: var(--code-background);
+  color: var(--code-text);
   border-radius: 12px;
   padding: 16px 18px;
   margin: 18px 0;
@@ -765,7 +839,7 @@ body.nav-open {
 
 .footer {
   border-top: 1px solid var(--border);
-  background: white;
+  background: var(--footer-bg);
   padding: 32px 0 0;
 }
 

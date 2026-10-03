@@ -2,6 +2,70 @@ const navigation = document.getElementById('site-navigation');
 const openButton = document.querySelector('[data-nav-open]');
 const closeControls = document.querySelectorAll('[data-nav-close]');
 const backdrop = document.querySelector('.nav-scrim');
+const themeStorageKey = 'toollab-theme';
+const themeChoices = ['light', 'dark', 'system'];
+const themeControl = document.createElement('div');
+themeControl.className = 'theme-control';
+themeControl.setAttribute('role', 'group');
+themeControl.setAttribute('aria-label', 'Color theme');
+
+const themeLabel = document.createElement('span');
+themeLabel.className = 'theme-control-label';
+themeLabel.textContent = 'Appearance';
+themeControl.append(themeLabel);
+
+const themeButtons = themeChoices.map((choice) => {
+  const button = document.createElement('button');
+  button.className = 'theme-option';
+  button.type = 'button';
+  button.dataset.themeChoice = choice;
+  button.textContent = choice[0].toUpperCase() + choice.slice(1);
+  button.setAttribute('aria-pressed', 'false');
+  themeControl.append(button);
+  return button;
+});
+
+navigation.querySelector('.sidebar-header')?.after(themeControl);
+
+let selectedTheme = 'system';
+try {
+  const storedTheme = localStorage.getItem(themeStorageKey);
+  if (themeChoices.includes(storedTheme)) {
+    selectedTheme = storedTheme;
+  }
+} catch {
+  selectedTheme = 'system';
+}
+
+function applyTheme(choice, persist = false) {
+  selectedTheme = choice;
+  const useDark = choice === 'dark' ||
+    (choice === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  document.documentElement.dataset.theme = useDark ? 'dark' : 'light';
+  themeButtons.forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.themeChoice === choice));
+  });
+
+  if (persist) {
+    try {
+      localStorage.setItem(themeStorageKey, choice);
+    } catch {
+      return;
+    }
+  }
+}
+
+themeButtons.forEach((button) => {
+  button.addEventListener('click', () => applyTheme(button.dataset.themeChoice, true));
+});
+
+applyTheme(selectedTheme);
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if (selectedTheme === 'system') {
+    applyTheme('system');
+  }
+});
 
 function setNavigationOpen(isOpen) {
   navigation.classList.toggle('is-open', isOpen);
