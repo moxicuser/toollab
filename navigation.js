@@ -11,6 +11,7 @@ function setNavigationOpen(isOpen) {
   openButton.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
   backdrop.hidden = !isOpen;
   backdrop.classList.toggle('is-open', isOpen);
+  document.documentElement.classList.toggle('nav-open', isOpen);
   document.body.classList.toggle('nav-open', isOpen);
 
   if (isOpen) {
