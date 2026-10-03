@@ -19,8 +19,23 @@
   <body>
     <header class="topbar">
       <div class="container nav">
-        <div class="brand">ToolLab</div>
-        <nav class="nav-links" aria-label="Main navigation">
+        <a class="brand" href="index.html">ToolLab</a>
+        <button class="menu-toggle" type="button" data-nav-open aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation">
+          <span class="hamburger-icon" aria-hidden="true"></span>
+        </button>
+        <div class="nav-scrim" data-nav-close hidden aria-hidden="true"></div>
+        <nav class="nav-links" id="site-navigation" aria-label="Main navigation" aria-hidden="true" inert>
+          <div class="sidebar-header">
+            <span>Tools and pages</span>
+            <button class="nav-close" type="button" data-nav-close aria-label="Close navigation">
+              <span class="close-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="sidebar-section-label">Categories</div>
+          <a href="finance-tools.html">Finance Tools</a>
+          <a href="everyday-tools.html">Everyday Utilities</a>
+          <a href="document-tools.html">Documents &amp; Images</a>
+          <div class="sidebar-section-label">All tools</div>
           <a href="index.html">Currency Converter</a>
           <a href="age-calculator.html">Age Calculator</a>
           <a href="date-difference.html">Date Difference</a>
@@ -28,6 +43,7 @@
           <a href="#generator">QR Generator</a>
           <a href="image-compressor.html">Image Compressor</a>
           <a href="image-resizer.html">Image Resizer</a>
+          <a href="file-converter.html">File Converter</a>
           <a href="#how-it-works">How it works</a>
           <a href="#faq">FAQ</a>
         </nav>
@@ -255,6 +271,7 @@
       </div>
     </footer>
 
+    <script src="navigation.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
     <script src="qr-generator.js" defer></script>
   </body>

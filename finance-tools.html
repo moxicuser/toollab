@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Browse ToolLab finance tools, including our browser-based currency exchange converter." />
+    <title>Finance Tools | ToolLab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="index.html">ToolLab</a>
+        <button class="menu-toggle" type="button" data-nav-open aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation"><span class="hamburger-icon" aria-hidden="true"></span></button>
+        <div class="nav-scrim" data-nav-close hidden aria-hidden="true"></div>
+        <nav class="nav-links" id="site-navigation" aria-label="Main navigation" aria-hidden="true" inert>
+          <div class="sidebar-header"><span>Tools and pages</span><button class="nav-close" type="button" data-nav-close aria-label="Close navigation"><span class="close-icon" aria-hidden="true"></span></button></div>
+          <div class="sidebar-section-label">Categories</div>
+          <a href="#category">Finance Tools</a>
+          <a href="everyday-tools.html">Everyday Utilities</a>
+          <a href="document-tools.html">Documents &amp; Images</a>
+          <div class="sidebar-section-label">All tools</div>
+          <a href="index.html">Currency Converter</a>
+          <a href="age-calculator.html">Age Calculator</a>
+          <a href="date-difference.html">Date Difference</a>
+          <a href="unit-converter.html">Unit Converter</a>
+          <a href="qr-generator.html">QR Generator</a>
+          <a href="image-compressor.html">Image Compressor</a>
+          <a href="image-resizer.html">Image Resizer</a>
+          <a href="file-converter.html">File Converter</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Tool category</p>
+            <h1>Finance Tools</h1>
+            <p>Financial utilities for quick estimates. Currency rates are indicative and may differ from your provider's rate or fees.</p>
+          </div>
+          <div class="calculator-card">
+            <h2>Available tool</h2>
+            <div class="category-tools" id="category">
+              <article class="category-tool">
+                <div><h2>Currency Converter</h2><p>Convert between supported world currencies using daily exchange rates.</p></div>
+                <a href="index.html">Open tool</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="content container">
+        <article class="info-card">
+          <h2>About these finance tools</h2>
+          <p>ToolLab currently focuses this category on currency conversion. The exchange estimate uses daily public rates, is not a transaction quote, and runs in your browser. Check your bank or payment service for its final rate and any fees.</p>
+        </article>
+      </section>
+    </main>
+    <footer class="footer"><div class="container footer-inner"><p>© 2026 ToolLab. All rights reserved.</p></div></footer>
+    <script src="navigation.js" defer></script>
+  </body>
+</html>

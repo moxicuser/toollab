@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Convert PDF, DOCX, XML, JSON, CSV, YAML, text, HTML, images, and more between 12 browser-based output formats."
+    />
+    <title>File Converter | PDF, DOCX, XML, JSON, CSV and More</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="index.html">ToolLab</a>
+        <button class="menu-toggle" type="button" data-nav-open aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation">
+          <span class="hamburger-icon" aria-hidden="true"></span>
+        </button>
+        <div class="nav-scrim" data-nav-close hidden aria-hidden="true"></div>
+        <nav class="nav-links" id="site-navigation" aria-label="Main navigation" aria-hidden="true" inert>
+          <div class="sidebar-header">
+            <span>Tools and pages</span>
+            <button class="nav-close" type="button" data-nav-close aria-label="Close navigation">
+              <span class="close-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="sidebar-section-label">Categories</div>
+          <a href="finance-tools.html">Finance Tools</a>
+          <a href="everyday-tools.html">Everyday Utilities</a>
+          <a href="document-tools.html">Documents &amp; Images</a>
+          <div class="sidebar-section-label">All tools</div>
+          <a href="index.html">Currency Converter</a>
+          <a href="age-calculator.html">Age Calculator</a>
+          <a href="date-difference.html">Date Difference</a>
+          <a href="unit-converter.html">Unit Converter</a>
+          <a href="qr-generator.html">QR Generator</a>
+          <a href="image-compressor.html">Image Compressor</a>
+          <a href="image-resizer.html">Image Resizer</a>
+          <a href="#converter">File Converter</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner file-converter-hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Documents and Files</p>
+            <h1>File Converter</h1>
+            <p>
+              Convert documents and structured data between 12 useful formats, including PDF, DOCX,
+              XML, JSON, CSV, YAML, Markdown, and more. Your files are processed in this browser.
+            </p>
+          </div>
+
+          <div class="calculator-card" id="converter">
+            <h2>Convert a file</h2>
+            <form id="file-converter-form">
+              <div class="field-group">
+                <label for="source-file">Choose a file</label>
+                <input
+                  class="file-input"
+                  id="source-file"
+                  type="file"
+                  accept=".pdf,.docx,.txt,.md,.csv,.tsv,.json,.xml,.yaml,.yml,.html,.htm,.rtf,.png,.jpg,.jpeg,.webp"
+                  required
+                />
+                <p class="control-note">PDF, DOCX, text/data files, or common images. Maximum file size: 25 MB.</p>
+              </div>
+
+              <div class="field-group">
+                <label for="target-format">Convert to</label>
+                <div class="input-wrap">
+                  <select id="target-format">
+                    <option value="pdf">PDF (.pdf)</option>
+                    <option value="docx">Word document (.docx)</option>
+                    <option value="txt">Plain text (.txt)</option>
+                    <option value="md">Markdown (.md)</option>
+                    <option value="html">HTML (.html)</option>
+                    <option value="csv">Comma-separated data (.csv)</option>
+                    <option value="tsv">Tab-separated data (.tsv)</option>
+                    <option value="json">JSON (.json)</option>
+                    <option value="xml">XML (.xml)</option>
+                    <option value="yaml">YAML (.yaml)</option>
+                    <option value="rtf">Rich text (.rtf)</option>
+                    <option value="sql">SQL inserts (.sql)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="action-row">
+                <button type="submit" class="primary-btn" id="convert-file-btn" disabled>Convert file</button>
+                <button type="button" class="secondary-btn" id="reset-btn">Reset</button>
+              </div>
+            </form>
+
+            <div class="conversion-result-box" aria-live="polite">
+              <p class="result-label" id="source-summary">Choose a file to begin</p>
+              <pre class="conversion-preview" id="source-preview" hidden></pre>
+              <img class="conversion-image-preview" id="image-preview" alt="Selected image preview" hidden />
+              <p class="rate-note" id="conversion-status" role="status"></p>
+              <a class="download-link" id="download-link" hidden>Download converted file</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content container">
+        <article class="info-card" id="how-it-works">
+          <h2>How to convert a file</h2>
+          <ol>
+            <li>Select a supported file from your device.</li>
+            <li>Choose one of the 12 output formats.</li>
+            <li>Select Convert file and review the conversion status.</li>
+            <li>Download the converted copy. Your original file remains unchanged.</li>
+          </ol>
+        </article>
+
+        <article class="info-card">
+          <h2>Supported conversions and limitations</h2>
+          <p>
+            XML, JSON, YAML, CSV, and TSV can be converted as structured data. Text, Markdown, HTML,
+            and RTF can be exported into document and data formats. Modern Word files (.docx) can be
+            converted to PDF, and text-based PDFs can be extracted into DOCX or text formats. PDF and
+            DOCX conversion preserves readable text, not the original page layout, fonts, tables, or
+            images. Scanned PDFs need OCR and are not read by this tool. Legacy binary Word files (.doc)
+            are not supported.
+          </p>
+          <p>
+            Images can be converted to PDF. Files are processed locally in the browser; conversion
+            libraries load from public CDNs, so an internet connection is needed to open this page.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>XML and data-format conversion</h2>
+          <p>
+            XML files are parsed into a data structure before conversion to JSON, YAML, CSV, TSV, SQL,
+            or other text outputs. Attributes are retained with an <code>@_</code> prefix, repeated XML
+            elements become arrays, and text mixed with child elements is stored as <code>#text</code>.
+            These conventions keep values accessible, though converting between formats with different
+            structures can change how nested data is represented.
+          </p>
+        </article>
+      </section>
+
+      <section class="faq container" id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Can I convert a Word document to PDF?</h3>
+            <p>Yes, for modern .docx files. The output keeps extracted text but does not reproduce complex document layout.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I convert PDF back to Word?</h3>
+            <p>Text-based PDFs can be converted to .docx. Scans, layout, tables, and images are not reconstructed; scanned PDFs need OCR.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Which XML conversions are available?</h3>
+            <p>Convert XML to JSON, YAML, CSV, TSV, SQL, text, and other supported formats. The reverse conversions are available where structured data can be represented.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Are my files uploaded?</h3>
+            <p>No. File contents are processed in your browser. Conversion libraries are fetched from public CDNs when the page loads.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 ToolLab. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="navigation.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js" defer></script>
+    <script src="file-converter.js" defer></script>
+  </body>
+</html>
