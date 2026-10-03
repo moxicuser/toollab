@@ -199,6 +199,25 @@ select {
   font-weight: 700;
 }
 
+.language-control {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 0 6px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.language-select {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+}
+
 .sidebar-section-label {
   margin: 14px 14px 4px;
   color: var(--muted);
