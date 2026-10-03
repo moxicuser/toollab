@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Calculate your age in years, months, and days, and find out how many days remain until your next birthday."
+    />
+    <title>Age Calculator | Calculate Your Exact Age</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">ToolLab</div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Currency Converter</a>
+          <a href="#calculator">Age Calculator</a>
+          <a href="date-difference.html">Date Difference</a>
+          <a href="unit-converter.html">Unit Converter</a>
+          <a href="qr-generator.html">QR Generator</a>
+          <a href="image-compressor.html">Image Compressor</a>
+          <a href="image-resizer.html">Image Resizer</a>
+          <a href="#how-to-use">How it works</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Everyday Utility</p>
+            <h1>Age Calculator</h1>
+            <p>
+              Calculate your age in complete years, months, and days. You can also see how long it is
+              until your next birthday.
+            </p>
+          </div>
+
+          <div class="calculator-card" id="calculator">
+            <h2>Calculate an age</h2>
+            <form id="age-form">
+              <div class="field-group">
+                <label for="birth-date">Date of birth</label>
+                <div class="input-wrap">
+                  <input id="birth-date" name="birthDate" type="date" required />
+                </div>
+              </div>
+              <div class="action-row">
+                <button type="submit" class="primary-btn">Calculate age</button>
+                <button type="button" class="secondary-btn" id="reset-btn">Reset</button>
+              </div>
+            </form>
+
+            <div class="result-box" aria-live="polite">
+              <p class="result-label" id="result-label">Your age</p>
+              <strong class="conversion-result" id="age-result">Enter your date of birth</strong>
+              <p class="rate-note" id="birthday-result" role="status">Your next birthday will appear here.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content container">
+        <article class="info-card" id="how-to-use">
+          <h2>How to use the age calculator</h2>
+          <ol>
+            <li>Select your birth date from the date field.</li>
+            <li>Choose Calculate age to compare it with today's date.</li>
+            <li>Read your age in years, months, and days, along with the countdown to your next birthday.</li>
+          </ol>
+        </article>
+
+        <article class="info-card">
+          <h2>How age is calculated</h2>
+          <p>
+            The calculator compares your birth date with today's local calendar date. It first counts full
+            years, then full months since your most recent birthday, and finally the remaining days. When
+            the current day number is earlier than your birth day, it borrows the number of days in the
+            previous calendar month. This accounts for months having different lengths and for leap years.
+          </p>
+          <p>
+            Your next birthday is found by checking whether this year's birthday has passed. If it has,
+            the calculator uses next year's date and counts the calendar days remaining.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>Example</h2>
+          <p>
+            If a person was born on <strong>May 10, 2000</strong> and today is <strong>October 2, 2026</strong>,
+            the result is <strong>26 years, 4 months, and 22 days</strong>. Their next birthday is 220 days away.
+            The exact result updates automatically based on the date you use the calculator.
+          </p>
+        </article>
+      </section>
+
+      <section class="faq container" id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Does it calculate age as of today?</h3>
+            <p>Yes. It uses the current date on your device when you calculate.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How are leap-day birthdays handled?</h3>
+            <p>For the birthday countdown, a February 29 birthday is observed on February 28 in years without a leap day.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is my birth date saved?</h3>
+            <p>No. The calculation runs in your browser, and the date is not sent to a server.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I calculate an age in the future?</h3>
+            <p>No. A birth date later than today is not accepted as a valid age.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 ToolLab. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="age-calculator.js"></script>
+  </body>
+</html>

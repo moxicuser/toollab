@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Find the number of days, weeks, and inclusive calendar days between any two dates with this free date difference calculator."
+    />
+    <title>Date Difference Calculator | Days Between Dates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">ToolLab</div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Currency Converter</a>
+          <a href="age-calculator.html">Age Calculator</a>
+          <a href="#calculator">Date Difference</a>
+          <a href="unit-converter.html">Unit Converter</a>
+          <a href="#how-to-use">How it works</a>
+          <a href="qr-generator.html">QR Generator</a>
+          <a href="image-compressor.html">Image Compressor</a>
+          <a href="image-resizer.html">Image Resizer</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Everyday Utility</p>
+            <h1>Date Difference Calculator</h1>
+            <p>
+              Find how many days or weeks separate two dates. The result works in either date order
+              and includes an optional count of both endpoint dates.
+            </p>
+          </div>
+
+          <div class="calculator-card" id="calculator">
+            <h2>Compare two dates</h2>
+            <form id="date-form">
+              <div class="field-group">
+                <label for="start-date">First date</label>
+                <div class="input-wrap">
+                  <input id="start-date" name="startDate" type="date" required />
+                </div>
+              </div>
+              <div class="field-group">
+                <label for="end-date">Second date</label>
+                <div class="input-wrap">
+                  <input id="end-date" name="endDate" type="date" required />
+                </div>
+              </div>
+              <div class="action-row">
+                <button type="submit" class="primary-btn">Calculate difference</button>
+                <button type="button" class="secondary-btn" id="copy-btn" disabled>Copy result</button>
+                <button type="button" class="secondary-btn" id="reset-btn">Reset</button>
+              </div>
+            </form>
+
+            <div class="result-box" aria-live="polite">
+              <p class="result-label" id="range-label">Choose two dates</p>
+              <div class="result-row">
+                <span>Days between</span>
+                <strong id="days-between">-</strong>
+              </div>
+              <div class="result-row">
+                <span>Weeks and days</span>
+                <strong id="weeks-and-days">-</strong>
+              </div>
+              <div class="result-row">
+                <span>Inclusive days</span>
+                <strong id="inclusive-days">-</strong>
+              </div>
+              <p class="rate-note" id="copy-status" role="status"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content container">
+        <article class="info-card" id="how-to-use">
+          <h2>How to use the date difference calculator</h2>
+          <ol>
+            <li>Choose the first date.</li>
+            <li>Choose the second date. It can be earlier or later than the first.</li>
+            <li>Select Calculate difference to see the gap in days and weeks.</li>
+            <li>Use Copy result to copy the summary for a document or message.</li>
+          </ol>
+        </article>
+
+        <article class="info-card">
+          <h2>How the date difference is calculated</h2>
+          <p>
+            The calculator converts each calendar date to a UTC day value and subtracts the earlier
+            date from the later one. Because it compares calendar days rather than elapsed hours,
+            daylight-saving changes do not add or remove a day. The date gap counts the days after the
+            first date up to and including the second date. The inclusive total adds one to count both
+            endpoint dates, which is useful when counting a multi-day event or booking.
+          </p>
+          <div class="formula-box">
+            <code>Days between = later date - earlier date</code>
+          </div>
+          <p>
+            For example, the gap from June 1 to June 8 is 7 days. Counting both June 1 and June 8 gives
+            an inclusive total of 8 calendar days.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>When to use each result</h2>
+          <p>
+            Use “Days between” to measure elapsed calendar days, such as the time until a deadline.
+            “Weeks and days” expresses the same gap in a form that is easier to scan. “Inclusive days”
+            counts both selected dates and can help estimate a trip length or event schedule. This tool
+            does not exclude weekends or public holidays.
+          </p>
+        </article>
+      </section>
+
+      <section class="faq container" id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Does the order of the dates matter?</h3>
+            <p>No. The calculator sorts the dates and reports the positive difference.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What does inclusive days mean?</h3>
+            <p>It counts both the start date and end date, so it is one more than the elapsed day difference.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Are weekends included?</h3>
+            <p>Yes. The result counts all calendar days. It does not remove weekends or holidays.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What if I choose the same date twice?</h3>
+            <p>The elapsed difference is zero days, and the inclusive count is one calendar day.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 ToolLab. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="date-difference.js"></script>
+  </body>
+</html>

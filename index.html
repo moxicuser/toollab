@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Convert between world currencies using the latest available daily exchange rates."
+    />
+    <title>Currency Converter | Exchange Rates and Conversion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">ToolLab</div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#converter">Currency Converter</a>
+          <a href="age-calculator.html">Age Calculator</a>
+          <a href="date-difference.html">Date Difference</a>
+          <a href="unit-converter.html">Unit Converter</a>
+          <a href="qr-generator.html">QR Generator</a>
+          <a href="image-compressor.html">Image Compressor</a>
+          <a href="image-resizer.html">Image Resizer</a>
+          <a href="#how-to-use">How it works</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Finance Tool</p>
+            <h1>Currency Converter</h1>
+            <p>
+              Convert amounts between world currencies with the latest available daily exchange rates.
+              Choose a source and destination currency to see an estimate in seconds.
+            </p>
+          </div>
+
+          <div class="calculator-card" id="converter">
+            <h2>Convert currencies</h2>
+            <form id="converter-form">
+              <div class="field-group">
+                <label for="amount">Amount</label>
+                <div class="input-wrap">
+                  <input id="amount" name="amount" type="number" min="0" step="any" value="100" required />
+                </div>
+              </div>
+
+              <div class="currency-pair">
+                <div class="field-group">
+                  <label for="from-currency">From</label>
+                  <div class="input-wrap">
+                    <select id="from-currency" name="fromCurrency" aria-label="Convert from currency">
+                      <option value="USD" selected>USD - US Dollar</option>
+                      <option value="EUR">EUR - Euro</option>
+                      <option value="GBP">GBP - British Pound</option>
+                      <option value="AED">AED - UAE Dirham</option>
+                      <option value="INR">INR - Indian Rupee</option>
+                      <option value="JPY">JPY - Japanese Yen</option>
+                      <option value="CAD">CAD - Canadian Dollar</option>
+                      <option value="AUD">AUD - Australian Dollar</option>
+                      <option value="CHF">CHF - Swiss Franc</option>
+                      <option value="CNY">CNY - Chinese Yuan</option>
+                      <option value="SGD">SGD - Singapore Dollar</option>
+                      <option value="HKD">HKD - Hong Kong Dollar</option>
+                      <option value="NZD">NZD - New Zealand Dollar</option>
+                      <option value="ZAR">ZAR - South African Rand</option>
+                      <option value="MXN">MXN - Mexican Peso</option>
+                      <option value="BRL">BRL - Brazilian Real</option>
+                      <option value="TRY">TRY - Turkish Lira</option>
+                      <option value="NOK">NOK - Norwegian Krone</option>
+                      <option value="SEK">SEK - Swedish Krona</option>
+                      <option value="DKK">DKK - Danish Krone</option>
+                      <option value="PLN">PLN - Polish Zloty</option>
+                      <option value="CZK">CZK - Czech Koruna</option>
+                      <option value="HUF">HUF - Hungarian Forint</option>
+                      <option value="RON">RON - Romanian Leu</option>
+                      <option value="BGN">BGN - Bulgarian Lev</option>
+                      <option value="ISK">ISK - Icelandic Krona</option>
+                      <option value="ILS">ILS - Israeli New Shekel</option>
+                      <option value="KRW">KRW - South Korean Won</option>
+                      <option value="THB">THB - Thai Baht</option>
+                      <option value="IDR">IDR - Indonesian Rupiah</option>
+                      <option value="PHP">PHP - Philippine Peso</option>
+                      <option value="MYR">MYR - Malaysian Ringgit</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="button" class="swap-btn" id="swap-btn" aria-label="Swap currencies" title="Swap currencies">⇄</button>
+
+                <div class="field-group">
+                  <label for="to-currency">To</label>
+                  <div class="input-wrap">
+                    <select id="to-currency" name="toCurrency" aria-label="Convert to currency">
+                      <option value="USD">USD - US Dollar</option>
+                      <option value="EUR" selected>EUR - Euro</option>
+                      <option value="GBP">GBP - British Pound</option>
+                      <option value="AED">AED - UAE Dirham</option>
+                      <option value="INR">INR - Indian Rupee</option>
+                      <option value="JPY">JPY - Japanese Yen</option>
+                      <option value="CAD">CAD - Canadian Dollar</option>
+                      <option value="AUD">AUD - Australian Dollar</option>
+                      <option value="CHF">CHF - Swiss Franc</option>
+                      <option value="CNY">CNY - Chinese Yuan</option>
+                      <option value="SGD">SGD - Singapore Dollar</option>
+                      <option value="HKD">HKD - Hong Kong Dollar</option>
+                      <option value="NZD">NZD - New Zealand Dollar</option>
+                      <option value="ZAR">ZAR - South African Rand</option>
+                      <option value="MXN">MXN - Mexican Peso</option>
+                      <option value="BRL">BRL - Brazilian Real</option>
+                      <option value="TRY">TRY - Turkish Lira</option>
+                      <option value="NOK">NOK - Norwegian Krone</option>
+                      <option value="SEK">SEK - Swedish Krona</option>
+                      <option value="DKK">DKK - Danish Krone</option>
+                      <option value="PLN">PLN - Polish Zloty</option>
+                      <option value="CZK">CZK - Czech Koruna</option>
+                      <option value="HUF">HUF - Hungarian Forint</option>
+                      <option value="RON">RON - Romanian Leu</option>
+                      <option value="BGN">BGN - Bulgarian Lev</option>
+                      <option value="ISK">ISK - Icelandic Krona</option>
+                      <option value="ILS">ILS - Israeli New Shekel</option>
+                      <option value="KRW">KRW - South Korean Won</option>
+                      <option value="THB">THB - Thai Baht</option>
+                      <option value="IDR">IDR - Indonesian Rupiah</option>
+                      <option value="PHP">PHP - Philippine Peso</option>
+                      <option value="MYR">MYR - Malaysian Ringgit</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="action-row">
+                <button type="submit" class="primary-btn" id="convert-btn">Convert</button>
+                <button type="button" class="secondary-btn" id="reset-btn">Reset</button>
+              </div>
+            </form>
+
+            <div class="result-box" aria-live="polite">
+              <p class="result-label" id="result-label">100 USD equals</p>
+              <strong class="conversion-result" id="conversion-result">Waiting for rates</strong>
+              <p class="rate-note" id="rate-note" role="status">Daily rates are provided by ExchangeRate-API Open Access.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content container">
+        <article class="info-card" id="how-to-use">
+          <h2>How to use the currency converter</h2>
+          <ol>
+            <li>Enter the amount you want to convert.</li>
+            <li>Choose the currency you are converting from and the currency you want.</li>
+            <li>Press Convert to request the latest available reference rate.</li>
+            <li>Use the swap control to reverse the currency pair.</li>
+          </ol>
+        </article>
+
+        <article class="info-card">
+          <h2>How exchange conversion works</h2>
+          <p>
+            The converter multiplies your amount by the exchange rate for the selected currency pair.
+            Rates come from the ExchangeRate-API Open Access feed, which updates daily. These are indicative rates,
+            not guaranteed rates for a transaction; banks and card providers may add
+            a spread or fee, and market rates can move after the published update.
+          </p>
+          <div class="formula-box">
+            <code>Converted amount = amount × exchange rate</code>
+          </div>
+          <p>
+            For example, if 1 USD is worth 0.92 EUR, then 100 USD converts to 92 EUR before any provider fees.
+            The rate date appears below the result when a conversion succeeds.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>Reference rates, not transaction quotes</h2>
+          <p>
+            This free tool is useful for travel planning, shopping comparisons, and quick estimates. It requires
+            an internet connection to retrieve rates. It does not exchange money or store the amounts you enter.
+            Always check the final rate and fees with your bank or payment provider before sending or spending money.
+          </p>
+        </article>
+      </section>
+
+      <section class="faq container" id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Where do the exchange rates come from?</h3>
+            <p>Rates are retrieved from ExchangeRate-API Open Access and are refreshed daily.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Are these live trading rates?</h3>
+            <p>No. They are daily reference rates, not real-time quotes or guaranteed rates from a bank.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Why might my bank show a different amount?</h3>
+            <p>Your bank or payment service may use a different rate and charge a conversion fee or spread.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Does the converter save my amount?</h3>
+            <p>No. The amount is used in your browser and is not stored by this page.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 ToolLab. Rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noreferrer">ExchangeRate-API</a>.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

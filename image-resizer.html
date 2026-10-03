@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Resize image dimensions in your browser, preserve aspect ratio, preview the output, and download the resized image."
+    />
+    <title>Image Resizer | Resize Image Dimensions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">ToolLab</div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Currency Converter</a>
+          <a href="age-calculator.html">Age Calculator</a>
+          <a href="date-difference.html">Date Difference</a>
+          <a href="unit-converter.html">Unit Converter</a>
+          <a href="qr-generator.html">QR Generator</a>
+          <a href="image-compressor.html">Image Compressor</a>
+          <a href="#resizer">Image Resizer</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner image-hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Image Tool</p>
+            <h1>Image Resizer</h1>
+            <p>
+              Set the pixel width and height you need, keep the original proportions, preview the
+              resized image, and download a new copy.
+            </p>
+          </div>
+
+          <div class="calculator-card" id="resizer">
+            <h2>Resize an image</h2>
+            <form id="resizer-form">
+              <div class="field-group">
+                <label for="image-file">Choose an image</label>
+                <input class="file-input" id="image-file" type="file" accept="image/jpeg,image/png,image/webp" required />
+                <p class="control-note">JPEG, PNG, or WebP. Maximum file size: 20 MB. Processing stays on your device.</p>
+              </div>
+
+              <div class="dimension-fields">
+                <div class="field-group">
+                  <label for="image-width">Width in pixels</label>
+                  <div class="input-wrap">
+                    <input id="image-width" type="number" min="1" max="10000" step="1" required disabled />
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label for="image-height">Height in pixels</label>
+                  <div class="input-wrap">
+                    <input id="image-height" type="number" min="1" max="10000" step="1" required disabled />
+                  </div>
+                </div>
+              </div>
+
+              <label class="check-field aspect-field" for="keep-aspect">
+                <input id="keep-aspect" type="checkbox" checked disabled />
+                Keep aspect ratio
+              </label>
+
+              <div class="field-group">
+                <label for="output-format">Output format</label>
+                <div class="input-wrap">
+                  <select id="output-format">
+                    <option value="source" selected>Keep original format</option>
+                    <option value="image/webp">WebP</option>
+                    <option value="image/jpeg">JPEG</option>
+                    <option value="image/png">PNG</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-group" id="quality-control">
+                <label for="quality">Quality <output id="quality-value">90%</output></label>
+                <input class="range-input" id="quality" type="range" min="10" max="100" value="90" />
+                <p class="control-note">Quality applies to JPEG and WebP output. PNG output is lossless.</p>
+              </div>
+
+              <div class="action-row">
+                <button type="submit" class="primary-btn" id="resize-btn" disabled>Resize image</button>
+                <button type="button" class="secondary-btn" id="download-btn" disabled>Download image</button>
+                <button type="button" class="secondary-btn" id="reset-btn">Reset</button>
+              </div>
+            </form>
+
+            <div class="image-previews" aria-live="polite">
+              <section class="image-preview-panel" id="original-panel" hidden>
+                <h3>Original</h3>
+                <img id="original-preview" alt="Original image preview" />
+                <p id="original-details"></p>
+              </section>
+              <section class="image-preview-panel" id="resized-panel" hidden>
+                <h3>Resized</h3>
+                <img id="resized-preview" alt="Resized image preview" />
+                <p id="resized-details"></p>
+              </section>
+            </div>
+            <p class="rate-note" id="resize-status" role="status"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content container">
+        <article class="info-card" id="how-it-works">
+          <h2>How to use the image resizer</h2>
+          <ol>
+            <li>Select a JPEG, PNG, or WebP image up to 20 MB.</li>
+            <li>Enter the target width and height in pixels.</li>
+            <li>Leave Keep aspect ratio selected to update the other dimension proportionally.</li>
+            <li>Choose an output format, resize, inspect the preview, and download the new image.</li>
+          </ol>
+        </article>
+
+        <article class="info-card">
+          <h2>How image resizing works</h2>
+          <p>
+            Resizing draws the source image onto a new canvas with the requested pixel dimensions.
+            Keeping the aspect ratio uses the source width-to-height ratio to calculate the other side,
+            which avoids stretching. Turning it off lets you set both dimensions independently but may
+            distort the image. Enlarging a small image cannot restore detail that was not present in the
+            source and may make it look soft.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>Choose dimensions for your use</h2>
+          <p>
+            Smaller pixel dimensions can reduce download size and fit thumbnails or profile images.
+            Keep a copy of the original before resizing. The tool processes the image in your browser,
+            and the selected file is not uploaded to ToolLab.
+          </p>
+        </article>
+      </section>
+
+      <section class="faq container" id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Does resizing change image quality?</h3>
+            <p>Changing dimensions can remove detail or soften an image. JPEG and WebP encoding quality also affects the saved result.</p>
+          </div>
+          <div class="faq-item">
+            <h3>What does keep aspect ratio do?</h3>
+            <p>It preserves the source proportions by automatically adjusting the other dimension when you edit width or height.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I enlarge an image?</h3>
+            <p>Yes, but enlarging cannot create source detail and may make the image look less sharp.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Are images uploaded?</h3>
+            <p>No. Resizing happens locally in your browser.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 ToolLab. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="image-resizer.js"></script>
+  </body>
+</html>

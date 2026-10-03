@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Convert length, weight, temperature, volume, and speed with this free unit converter."
+    />
+    <title>Unit Converter | Length, Weight, Temperature and More</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">ToolLab</div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Currency Converter</a>
+          <a href="age-calculator.html">Age Calculator</a>
+          <a href="date-difference.html">Date Difference</a>
+          <a href="#converter">Unit Converter</a>
+          <a href="qr-generator.html">QR Generator</a>
+          <a href="image-compressor.html">Image Compressor</a>
+          <a href="image-resizer.html">Image Resizer</a>
+          <a href="#how-to-use">How it works</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Everyday Utility</p>
+            <h1>Unit Converter</h1>
+            <p>
+              Convert common measurements for distance, weight, temperature, volume, and speed.
+              Choose a category, enter a value, and select the units you need.
+            </p>
+          </div>
+
+          <div class="calculator-card" id="converter">
+            <h2>Convert a measurement</h2>
+            <form id="unit-form">
+              <div class="field-group">
+                <label for="category">Category</label>
+                <div class="input-wrap">
+                  <select id="category" name="category">
+                    <option value="length">Length</option>
+                    <option value="weight">Weight</option>
+                    <option value="temperature">Temperature</option>
+                    <option value="volume">Volume</option>
+                    <option value="speed">Speed</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="quantity">Value</label>
+                <div class="input-wrap">
+                  <input id="quantity" name="quantity" type="number" step="any" value="1" required />
+                </div>
+              </div>
+
+              <div class="currency-pair">
+                <div class="field-group">
+                  <label for="from-unit">From</label>
+                  <div class="input-wrap">
+                    <select id="from-unit" name="fromUnit" aria-label="Convert from unit"></select>
+                  </div>
+                </div>
+                <button type="button" class="swap-btn" id="swap-btn" aria-label="Swap units" title="Swap units">⇄</button>
+                <div class="field-group">
+                  <label for="to-unit">To</label>
+                  <div class="input-wrap">
+                    <select id="to-unit" name="toUnit" aria-label="Convert to unit"></select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="action-row">
+                <button type="submit" class="primary-btn">Convert</button>
+                <button type="button" class="secondary-btn" id="copy-btn" disabled>Copy result</button>
+                <button type="button" class="secondary-btn" id="reset-btn">Reset</button>
+              </div>
+            </form>
+
+            <div class="result-box" aria-live="polite">
+              <p class="result-label" id="result-label">1 kilometer equals</p>
+              <strong class="conversion-result" id="conversion-result">0.621371 miles</strong>
+              <p class="rate-note" id="copy-status" role="status"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content container">
+        <article class="info-card" id="how-to-use">
+          <h2>How to use the unit converter</h2>
+          <ol>
+            <li>Choose a measurement category.</li>
+            <li>Enter the value you want to convert.</li>
+            <li>Select the source and target units.</li>
+            <li>Choose Convert, or swap the units to reverse the conversion.</li>
+            <li>Copy the displayed result when you need to use it elsewhere.</li>
+          </ol>
+        </article>
+
+        <article class="info-card">
+          <h2>How unit conversion works</h2>
+          <p>
+            For length, weight, volume, and speed, the converter first changes the input to a standard
+            base unit, then changes that value into the selected output unit. This keeps conversions
+            consistent across metric and customary measurements. Temperature uses separate formulas
+            because Celsius, Fahrenheit, and Kelvin have different zero points as well as different scales.
+          </p>
+          <div class="formula-box">
+            <code>Converted value = input value × source factor ÷ target factor</code>
+          </div>
+          <p>
+            For example, a kilometer contains 1,000 meters and a mile contains 1,609.344 meters.
+            Therefore, 1 kilometer is about 0.621371 miles. For temperature, 0°C is 32°F and 273.15 K.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>Choosing the right units</h2>
+          <p>
+            Use length conversions for travel, construction, and object measurements; weight conversions
+            for recipes and shipping; and volume conversions for liquids. Temperature conversions help
+            compare weather or cooking instructions. Speed conversions are useful for comparing road
+            speeds and pace. Results are rounded for display, while calculations use the full conversion
+            factors in the browser.
+          </p>
+        </article>
+      </section>
+
+      <section class="faq container" id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Which categories are supported?</h3>
+            <p>The converter supports length, weight, temperature, volume, and speed.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Are US and Imperial units the same?</h3>
+            <p>Not always. This tool labels US customary units explicitly where their values differ, such as US gallons.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How precise are the results?</h3>
+            <p>The calculation uses standard conversion factors and displays up to eight significant digits.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is my value sent anywhere?</h3>
+            <p>No. Unit conversions are calculated locally in your browser.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 ToolLab. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="unit-converter.js"></script>
+  </body>
+</html>

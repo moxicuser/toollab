@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create and download QR codes for websites, image and document links, WhatsApp, social profiles, email, phone, Wi-Fi, and text."
+    />
+    <title>QR Code Generator | Links, WhatsApp, Wi-Fi and More</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">ToolLab</div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html">Currency Converter</a>
+          <a href="age-calculator.html">Age Calculator</a>
+          <a href="date-difference.html">Date Difference</a>
+          <a href="unit-converter.html">Unit Converter</a>
+          <a href="#generator">QR Generator</a>
+          <a href="image-compressor.html">Image Compressor</a>
+          <a href="image-resizer.html">Image Resizer</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner qr-hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Everyday Utility</p>
+            <h1>QR Code Generator</h1>
+            <p>
+              Make a scannable QR code for a website, file share link, WhatsApp chat, social profile,
+              email, phone number, Wi-Fi network, or plain text.
+            </p>
+          </div>
+
+          <div class="calculator-card" id="generator">
+            <h2>Create a QR code</h2>
+            <form id="qr-form">
+              <div class="field-group">
+                <label for="qr-type">Destination type</label>
+                <div class="input-wrap">
+                  <select id="qr-type" name="type">
+                    <option value="link">Website or file link</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="social">Social profile</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone number</option>
+                    <option value="wifi">Wi-Fi network</option>
+                    <option value="text">Plain text</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-group qr-field" data-field="link">
+                <label for="link-url">Website, image, or document share URL</label>
+                <div class="input-wrap">
+                  <input id="link-url" type="url" placeholder="https://example.com" autocomplete="url" />
+                </div>
+                <p class="rate-note">For an image or document, paste its public share URL. This tool does not upload files.</p>
+              </div>
+
+              <div class="qr-field" data-field="whatsapp" hidden>
+                <div class="field-group">
+                  <label for="whatsapp-number">Phone number with country code</label>
+                  <div class="input-wrap">
+                    <input id="whatsapp-number" type="tel" placeholder="+1 555 123 4567" autocomplete="tel" />
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label for="whatsapp-message">Message (optional)</label>
+                  <div class="input-wrap">
+                    <input id="whatsapp-message" type="text" placeholder="Hello!" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="field-group qr-field" data-field="social" hidden>
+                <label for="social-platform">Platform</label>
+                <div class="input-wrap">
+                  <select id="social-platform">
+                    <option value="instagram">Instagram</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="linkedin">LinkedIn</option>
+                    <option value="x">X</option>
+                    <option value="snapchat">Snapchat</option>
+                  </select>
+                </div>
+                <label for="social-profile" class="secondary-label">Username or profile URL</label>
+                <div class="input-wrap">
+                  <input id="social-profile" type="text" placeholder="@yourname or https://..." />
+                </div>
+              </div>
+
+              <div class="field-group qr-field" data-field="email" hidden>
+                <label for="email-address">Email address</label>
+                <div class="input-wrap">
+                  <input id="email-address" type="email" placeholder="name@example.com" autocomplete="email" />
+                </div>
+                <label for="email-subject" class="secondary-label">Subject (optional)</label>
+                <div class="input-wrap">
+                  <input id="email-subject" type="text" placeholder="Subject" />
+                </div>
+              </div>
+
+              <div class="field-group qr-field" data-field="phone" hidden>
+                <label for="phone-number">Phone number</label>
+                <div class="input-wrap">
+                  <input id="phone-number" type="tel" placeholder="+1 555 123 4567" autocomplete="tel" />
+                </div>
+              </div>
+
+              <div class="qr-field" data-field="wifi" hidden>
+                <div class="field-group">
+                  <label for="wifi-name">Network name (SSID)</label>
+                  <div class="input-wrap">
+                    <input id="wifi-name" type="text" autocomplete="off" />
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label for="wifi-security">Security</label>
+                  <div class="input-wrap">
+                    <select id="wifi-security">
+                      <option value="WPA">WPA / WPA2 / WPA3</option>
+                      <option value="WEP">WEP</option>
+                      <option value="nopass">No password</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field-group" id="wifi-password-group">
+                  <label for="wifi-password">Password</label>
+                  <div class="input-wrap">
+                    <input id="wifi-password" type="password" autocomplete="new-password" />
+                  </div>
+                </div>
+                <label class="check-field" for="wifi-hidden">
+                  <input id="wifi-hidden" type="checkbox" />
+                  Hidden network
+                </label>
+              </div>
+
+              <div class="field-group qr-field" data-field="text" hidden>
+                <label for="plain-text">Text to encode</label>
+                <div class="input-wrap">
+                  <textarea id="plain-text" rows="4" placeholder="Type your message"></textarea>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label for="qr-size">Image size</label>
+                <div class="input-wrap">
+                  <select id="qr-size">
+                    <option value="256">256 px</option>
+                    <option value="384" selected>384 px</option>
+                    <option value="512">512 px</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="action-row">
+                <button type="submit" class="primary-btn">Generate QR code</button>
+                <button type="button" class="secondary-btn" id="copy-btn" disabled>Copy content</button>
+                <button type="button" class="secondary-btn" id="download-btn" disabled>Download PNG</button>
+                <button type="button" class="secondary-btn" id="reset-btn">Reset</button>
+              </div>
+            </form>
+
+            <div class="qr-result" aria-live="polite">
+              <div class="qr-frame" id="qr-preview" aria-label="Generated QR code preview">
+                <span id="qr-placeholder">Your QR code will appear here</span>
+              </div>
+              <p class="rate-note" id="qr-status" role="status"></p>
+              <details class="encoded-details" id="encoded-details" hidden>
+                <summary>Encoded content</summary>
+                <code id="encoded-content"></code>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content container">
+        <article class="info-card" id="how-it-works">
+          <h2>How QR codes work</h2>
+          <p>
+            A QR code stores text that a camera or QR reader can scan. For a website, social profile,
+            image, or document, the code stores a URL that opens the destination. For Wi-Fi, email,
+            phone, and WhatsApp, it stores a formatted action that compatible devices can recognize.
+            This generator builds the code in your browser and does not send the content you enter to
+            ToolLab.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>Using QR codes for images and documents</h2>
+          <p>
+            A QR code cannot practically contain a full image or document. First upload the file to a
+            service that provides a share link, then paste that link into the Website or file link option.
+            Set the file's access permissions so the people who scan the code can open it. The QR code
+            stores the link, not a copy of the file, and the linked service controls access.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>Before you share</h2>
+          <p>
+            Scan the downloaded image with your phone before printing or posting it. Check that links
+            open the intended page and that shared files have the right access settings. Wi-Fi QR codes
+            include the network name and, when required, its password; share those codes only with people
+            you trust.
+          </p>
+        </article>
+      </section>
+
+      <section class="faq container" id="faq">
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Can I make a QR code for a PDF or image?</h3>
+            <p>Yes. Paste a shareable URL for the file. The file must be hosted online and accessible to the people scanning it.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can the QR code contain the whole file?</h3>
+            <p>No. QR codes have limited capacity and are not a practical way to store full documents or images.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How do WhatsApp QR codes work?</h3>
+            <p>They open a WhatsApp chat link for the number you enter. Include the country code and omit spaces or punctuation from the actual number.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is my content uploaded?</h3>
+            <p>No. The code is generated locally in your browser. The QR library is loaded from a public CDN.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© 2026 ToolLab. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+    <script src="qr-generator.js" defer></script>
+  </body>
+</html>
