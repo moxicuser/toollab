@@ -32,6 +32,15 @@ navigation.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => setNavigationOpen(false));
 });
 
+navigation.addEventListener('wheel', (event) => {
+  if (openButton.getAttribute('aria-expanded') !== 'true' || event.deltaY === 0) {
+    return;
+  }
+
+  event.preventDefault();
+  navigation.scrollTop += event.deltaY;
+}, { passive: false });
+
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && openButton.getAttribute('aria-expanded') === 'true') {
     setNavigationOpen(false);

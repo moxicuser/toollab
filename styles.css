@@ -82,6 +82,10 @@ select {
   width: min(340px, calc(100vw - 44px));
   padding: 18px 14px 24px;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+  touch-action: pan-y;
   background: var(--panel);
   border-right: 1px solid var(--border);
   box-shadow: 18px 0 48px rgba(15, 23, 42, 0.14);
